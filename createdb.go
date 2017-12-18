@@ -8,6 +8,7 @@ import (
 	"bufio"
 	"io"
 	"strings"
+	"time"
 )
 
 var (
@@ -53,6 +54,7 @@ func insert(db *sql.DB, s1 string, s2 string, s3 string){
 	fmt.Println(id)
 }
 func main()  {
+	start := time.Second
 
 	fi, err := os.Open("D:\\www.csdn.net.sql.txt")
 	if err != nil{
@@ -78,6 +80,9 @@ func main()  {
 
 		insert(db, s[0], s[1], s[2])
 	}
+
+	end := time.Second
+	fmt.Println((end - start))
 }
 
 
